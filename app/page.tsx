@@ -17,10 +17,10 @@ export default function Home() {
       <ServicesSection />
       <AboutSection />
       <ProcessSection />
-      <TestimonialsSection />
       <PortfolioSection />
       <PricingSection />
       <ContactSection />
+      <TestimonialsSection />
       <Footer />
     </main>
   )
