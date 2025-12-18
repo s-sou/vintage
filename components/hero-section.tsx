@@ -46,36 +46,6 @@ export function HeroSection() {
         />
       </div>
 
-      {/* <div className="absolute inset-0 pointer-events-none">
-        <Code2
-          className="absolute text-muted-foreground/30 animate-float"
-          style={{
-            top: "15%",
-            left: "15%",
-            animationDelay: "0s",
-          }}
-          size={40}
-        />
-        <Palette
-          className="absolute text-muted-foreground/30 animate-float"
-          style={{
-            top: "25%",
-            right: "20%",
-            animationDelay: "2s",
-          }}
-          size={35}
-        />
-        <Sparkles
-          className="absolute text-muted-foreground/30 animate-float"
-          style={{
-            bottom: "20%",
-            left: "20%",
-            animationDelay: "1s",
-          }}
-          size={30}
-        />
-      </div> */}
-
       <div className="absolute inset-0 z-0">
         <Image
           src="/HeroVintage.png"
@@ -114,7 +84,7 @@ export function HeroSection() {
         </div>
 
         <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6 animate-fade-in-up text-balance">
-          Residencia
+          Residencias
           <br />
           <span className="text-primary relative inline-block">VINTAGE</span>
         </h1>
@@ -150,8 +120,8 @@ export function HeroSection() {
       {/* Scroll Indicator */}
       <div className="hidden sm:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/70">
         <div className="animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/70 rounded-full mt-2"></div>
+          <div className="w-5 h-8 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-0.5 h-2 bg-white/70 rounded-full mt-2"></div>
           </div>
         </div>
       </div>

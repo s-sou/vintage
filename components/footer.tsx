@@ -3,44 +3,44 @@ import { Github, Linkedin, Twitter } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-muted/30 py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="border-t border-border bg-footer-bg py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">ms-webdesign</h3>
+            <h3 className="text-xl font-bold mb-4">Residencias Vintage</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              © 2025 ms-webdesign. Alle rechten voorbehouden.
+              © 2025
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Navigatie</h4>
+            <h4 className="font-semibold mb-4">Navegación</h4>
             <ul className="space-y-2">
               <li>
                 <Link href="#over-ons" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Over Ons
+                  Nosotros
                 </Link>
               </li>
               <li>
                 <Link href="#diensten" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Diensten
+                  Servicios
                 </Link>
               </li>
               <li>
                 <Link href="#portfolio" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Portfolio
+                  Residencias
                 </Link>
               </li>
               <li>
                 <Link href="#contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Contact
+                  Contacto
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Volg Ons</h4>
+            <h4 className="font-semibold mb-4">Redes</h4>
             <div className="flex gap-4">
               <Link
                 href="https://linkedin.com"

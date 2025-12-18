@@ -69,7 +69,7 @@ export function TestimonialsSection() {
           <div ref={scrollRef} className="flex gap-6 overflow-x-hidden" style={{ scrollBehavior: "auto" }}>
             {/* Duplicate testimonials for seamless loop */}
             {[...testimonials, ...testimonials].map((testimonial, index) => (
-              <Card key={index} className="flex-shrink-0 w-[90vw] sm:w-[450px] border-none shadow-lg">
+              <Card key={index} className="shrink-0 w-[90vw] sm:w-[450px] border-none shadow-lg">
                 <CardContent className="p-8">
                   <Quote className="h-8 w-8 text-primary mb-4" />
                   <p className="text-base sm:text-lg mb-6 leading-relaxed text-pretty min-h-[120px]">
