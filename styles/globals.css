@@ -2,9 +2,9 @@
 
 :root {
   /* Brand Colors - Vintage */
-  --vintage-blue: oklch(0.82 0.05 200); /* Light blue #96D1D9 - Main brand color */
-  --vintage-red: oklch(0.58 0.14 35); /* Orange-red #CB5232 - Accent color */
-  --vintage-cream: oklch(0.96 0.005 270); /* Light cream - Backgrounds */
+  --vintage-blue: oklch(0.77 0.09 190); /* Turquoise #57cfc7 - Main brand color */
+  --vintage-red: oklch(0.67 0.19 40); /* Orange #f85d1b - Accent color */
+  --vintage-cream: oklch(0.971 0.047 106); /* Light cream #f9f8d4 - Backgrounds */
   
   /* Custom color palette */
   --background: oklch(0.99 0 0); /* Very light gray/white */
@@ -17,6 +17,7 @@
   --primary-foreground: oklch(1 0 0); /* White text on red */
   --navbar-bg: var(--vintage-blue);
   --footer-bg: var(--vintage-blue);
+  --logo-text: oklch(0.67 0.19 40 / 0.7); /* Logo text color - attenuated vintage-red */
   --secondary: oklch(0.95 0.005 270);
   --secondary-foreground: oklch(0.15 0.01 270);
   --muted: var(--vintage-cream);
@@ -62,6 +63,9 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   * {
     border-color: var(--border);
     outline-color: color-mix(in srgb, var(--ring) 50%, transparent);
@@ -71,7 +75,10 @@
     color: var(--foreground);
   }
   .bg-navbar {
-    background-color: rgba(150, 209, 217, 0.8);
+    background-color: color-mix(in srgb, var(--vintage-blue) 50%, transparent);
+  }
+  .bg-footer {
+    background-color: color-mix(in srgb, var(--vintage-blue) 80%, transparent);
   }
 }
 

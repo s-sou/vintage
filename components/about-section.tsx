@@ -3,6 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Users, Home, Heart, Sparkles } from "lucide-react";
 import Image from "next/image";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 //  Valores para las 4 cards pequeñas
 const values = [
@@ -38,8 +39,10 @@ const galleryImages = [
 ];
 
 export function AboutSection() {
+  const { elementRef, isVisible } = useScrollAnimation();
+  
   return (
-    <section id="About" className="py-20 px-4 sm:px-6 lg:px-8 relative">
+    <section ref={elementRef} id="About" className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
@@ -48,9 +51,9 @@ export function AboutSection() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary text-xs font-semibold">
             <Sparkles className="h-3 w-3" />
-            Somos parte de tu vida
+            Nosotros
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Tu Residencia Universitaria {" "}
             <span className="text-primary relative">
               en Montevideo
@@ -76,7 +79,7 @@ export function AboutSection() {
           {/* Columna Izquierda: Párrafo + 4 Cards */}
           <div className="space-y-8">
             {/* Párrafo */}
-            <p className="text-md text-muted-foreground leading-relaxed text-pretty">
+            <p className={`text-md text-muted-foreground leading-relaxed text-pretty ${isVisible ? 'animate-fade-in-up animate-delay-100' : 'opacity-0'}`}>
               Residencia Vintage es más que un lugar para vivir: es una
               comunidad de estudiantes que comparten la experiencia
               universitaria en un ambiente cálido y acogedor. Ubicada en pleno
@@ -90,7 +93,7 @@ export function AboutSection() {
             </p>
 
             {/* 4 Cards pequeñas y cuadradas */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="hidden md:grid grid-cols-2 gap-4">
               {values.map((value, index) => {
                 const Icon = value.icon;
                 return (

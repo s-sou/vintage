@@ -3,29 +3,31 @@
 import { useEffect, useRef } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Quote } from "lucide-react"
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const testimonials = [
   {
     quote:
-      "Snel en doeltreffend! Ik zocht een logo die mijn bedrijf perfect zou laten zien en bij MSwebdesign hebben ze mij niet teleurgesteld. :)",
-    name: "Patrick",
-    role: "Ondernemer",
+      "Vivir en Parque Rodó fue una gran experiencia. La residencia es cómoda, bien equipada y el ambiente para estudiar es ideal.",
+    name: "Lucía",
+    role: "Estudiante universitaria",
   },
   {
     quote:
-      "Voor onze stichting wilden we onze oude website volledig vernieuwen en een heleboel handmatige taken automatiseren. MSwebdesign heeft voor ons een mooi product neergezet, volledig op maat met programmatuur waardoor we niet meer alles handmatig hoeven te doen.",
-    name: "Mehmet",
-    role: "Voorzitter non-profit stichting",
+      "La ubicación en Palermo es excelente. Wifi en toda la residencia, cocina completa y espacios comunes muy bien cuidados.",
+    name: "Martín",
+    role: "Estudiante del interior",
   },
   {
     quote:
-      "Voor mijn nieuwe bedrijf wilde ik een mooie frisse website die als visitekaartje zou functioneren. Nu heb ik een prachtige en snelle website die ook nog eens goed te vinden is op Google! Echt top.",
-    name: "Youri",
-    role: "Ondernemer",
+      "Todo lo que necesitaba para el día a día: sala de estudio, lavarropas, sala de TV y un entorno tranquilo en un barrio hermoso.",
+    name: "Agustina",
+    role: "Estudiante extranjera",
   },
 ]
 
 export function TestimonialsSection() {
+  const { elementRef, isVisible } = useScrollAnimation();
   const scrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -55,14 +57,13 @@ export function TestimonialsSection() {
   }, [])
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 overflow-hidden">
+    <section ref={elementRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-balance">
-          Wat onze klanten over ons zeggen
+          Testimonios
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-pretty leading-relaxed">
-          Zoals we altijd doen, gaat kwaliteit bij ons voorop. Daarnaast streven we altijd naar zoveel mogelijk
-          transparantie, zodat onze klanten weten waar ze aan toe zijn.
+          Esto es lo que opinan estudiantes que se hospedaron con nosotros.
         </p>
 
         <div className="relative">

@@ -1,12 +1,15 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Code2, Palette } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { adumu, specialElite } from "@/lib/fonts";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const { elementRef, isVisible } = useScrollAnimation();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -17,7 +20,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-[92vh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section ref={elementRef} className="relative h-[92vh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute w-[500px] h-[500px] rounded-full bg-muted/40 blur-3xl animate-pulse"
@@ -59,7 +62,7 @@ export function HeroSection() {
       </div>
 
       <div className="container mx-auto text-center max-w-5xl relative z-10 pt-20 pb-20 md:pb-28 lg:pb-36">
-        <div className="mb-6 mt-4 flex justify-center">
+        <div className="mb-4 mt-8 flex justify-center">
           <Image
             src="/LogoVintage.png"
             alt="Residencia Vintage Logo"
@@ -70,32 +73,32 @@ export function HeroSection() {
         </div>
 
         <div
-          className="inline-flex items-center gap-1 px-2 py-1 rounded-full mb-4 animate-fade-in-up"
+          className={`inline-flex items-center gap-1 px-2 py-1 rounded-full mb-4 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
           style={{
             backgroundColor: "rgb(140, 196, 204, 0.3)",
             borderColor: "rgb(140, 196, 204, 0.3)",
             borderWidth: "1px",
           }}
         >
-          <Sparkles className="w-3 h-3 text-white" />
-          <span className="text-xs text-white">
-            Tu Hogar Universitario en Montevideo
+          {/* <Sparkles className="w-3 h-3" style={{ color: "var(--vintage-cream)" }} /> */}
+          <span className={`text-sm tracking-wide ${specialElite.className}`} style={{ color: "var(--vintage-cream)" }}>
+            Somos parte de tu historia
           </span>
         </div>
 
-        <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6 animate-fade-in-up text-balance">
+        <h1 className={`text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-2 text-balance leading-snug ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
           Residencias
           <br />
-          <span className="text-primary relative inline-block">VINTAGE</span>
+          <span className={`text-5xl md:text-6xl lg:text-7xl font-extralight tracking-wider ${adumu.className}`} style={{ color: "var(--vintage-red)" }}>VINTAGE</span>
         </h1>
 
-        <p className="text-base sm:text-lg text-white mb-10 max-w-xl mx-auto animate-fade-in-up animate-delay-100 leading-relaxed">
+        <p className={`text-base sm:text-lg text-white mb-6 max-w-xl mx-auto leading-relaxed ${isVisible ? 'animate-fade-in-up animate-delay-100' : 'opacity-0'}`}>
           Ubicadas en el corazón de Montevideo, ofrecemos un espacio moderno y
           confortable para estudiantes universitarios que buscan calidad,
           comunidad y cercanía.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animate-delay-200 mb-6">
+        <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 ${isVisible ? 'animate-fade-in-up animate-delay-200' : 'opacity-0'}`}>
           <Button
             size="lg"
             className="font-semibold group shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/25 transition-all"

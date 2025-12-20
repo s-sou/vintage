@@ -1,96 +1,100 @@
 "use client"
 
+import Image from "next/image"
+import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
-import { ExternalLink } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Sparkles } from "lucide-react"
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
-const projects = [
+const residences = [
   {
-    title: "De Omgekeerde Stemwijzer",
-    category: "AI/ML & Web Development",
-    image: "/omgekeerdestemwijzer-banner.png",
-    description:
-      "AI-powered app voor de Tweede Kamerverkiezingen 2025. Gebruikers stellen vragen over partijstandpunten en krijgen 100% feitelijke antwoorden uit officiële partijprogramma's met RAG-technologie.",
-    url: "https://de-omgekeerde-stemwijzer.onrender.com/",
-    tags: ["Next.js", "AI/ML", "RAG", "TypeScript"],
+    title: "Residencia Parque Rodó",
+    slug: "parque_rodo",
+    dir: "Dirección 1",
+    image: "/HeroVintage.png",
+    features: [
+      "Habitaciones individuales y compartidas",
+      "Cerca de Parque Rodó y la playa",
+      "Áreas comunes amplias",
+      "WiFi de alta velocidad",
+      "Cocina equipada"
+    ],
   },
   {
-    title: "Autopoetsbedrijf Tahsin",
-    category: "Web Design & Development",
-    image: "/autopoetsbedrijf-tahsin-project.png",
-    description:
-      "Professionele website voor autopoetsbedrijf met meer dan 20 jaar ervaring. Complete presentatie van diensten, wasstraat en garage met modern, responsief design.",
-    url: "https://www.autopoetsbedrijftahsin.nl/",
-    tags: ["React", "Next.js", "Tailwind CSS"],
+    title: "Residencia Palermo",
+    slug: "palermo",
+    dir: "Dirección 2",
+    image: "/ImgVintage5.png",
+    features: [
+      "Ubicación céntrica y tranquila",
+      "Cerca de universidades",
+      "Salas de estudio",
+      "Seguridad 24/7",
+      "Transporte público cercano"
+    ],
   },
   {
-    title: "CAN Uitzendbureau",
-    category: "Web Development",
-    image: "/can-uitzendbureau-project.png",
-    description:
-      "Uitzendbureau gespecialiseerd in de tuinbouw regio Den Haag met 30 jaar ervaring. Website met diensten overzicht en directe contactmogelijkheden voor werkgevers en werkzoekenden.",
-    url: "https://canbv.nl/",
-    tags: ["Next.js", "React", "Tailwind CSS"],
-  },
-  {
-    title: "Murat Sahin Portfolio",
-    category: "Portfolio Website",
-    image: "/murat-sahin-portfolio.png",
-    description:
-      "Professionele portfolio website voor full-stack developer. Showcase van projecten, skills en ervaring met modern, strak design en donker thema.",
-    url: "https://murat-sahin-dev.vercel.app/",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", ".NET Core"],
+    title: "¡Nueva!\n Residencia Parque Rodó II",
+    slug: "parque_rodo_2",
+    dir: "Dirección 3",
+    image: "/ImgVintage6.png",
+    features: [
+      "Espacios modernos y luminosos",
+      "Diseño arquitectónico único",
+      "Áreas de convivencia",
+      "Equipamiento completo",
+      "Excelente conectividad"
+    ],
   },
 ]
 
 export function PortfolioSection() {
+  const { elementRef, isVisible } = useScrollAnimation();
   return (
-    <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section ref={elementRef} id="Residences" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">Ons Portfolio</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Bekijk een selectie van onze recente projecten en ontdek hoe wij bedrijven helpen groeien met krachtige
-            digitale oplossingen.
+        <div className="flex justify-center mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-xs font-semibold">
+            <Sparkles className="h-3 w-3" />
+            Ubicaciónes
+          </div>
+        </div>
+        <div className="text-center mb-8">
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>Nuestras <span className="text-primary">Residencias</span></h2>
+          <p className={`text-lg text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed ${isVisible ? 'animate-fade-in-up animate-delay-100' : 'opacity-0'}`}>
+            Contamos con tres residencias en Montevideo. Elegí la que mejor se adapte a tu ubicación y preferencias.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="group overflow-hidden border-none shadow-md hover:shadow-xl transition-all duration-300"
-            >
-              <div className="relative overflow-hidden aspect-video">
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <Button
-                    size="sm"
-                    variant="secondary"
-                    className="gap-2"
-                    onClick={() => window.open(project.url, "_blank")}
-                  >
-                    Bekijk project <ExternalLink className="h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-              <CardContent className="p-6">
-                <p className="text-sm text-primary font-semibold mb-2">{project.category}</p>
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {residences.map((residence, index) => (
+              <Link key={index} href={`/residencias/${residence.slug}`} className="block">
+                <Card
+                  className="group overflow-hidden border-none shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.01] cursor-pointer"
+                >
+                  <div className="relative overflow-hidden aspect-video">
+                    <Image
+                      src={residence.image || "/placeholder.svg"}
+                      alt={residence.title}
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <CardContent className="p-6 pb-4">
+                    <p className="text-sm text-primary font-semibold mb-2">{residence.dir}</p>
+                    <h3 className="text-xl font-bold mb-4 whitespace-pre-line">{residence.title}</h3>
+                    <ul className="space-y-2">
+                      {residence.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="text-sm text-muted-foreground flex items-start gap-2">
+                          <span className="text-primary font-bold mt-0.5">✓</span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </Link>
           ))}
         </div>
       </div>
