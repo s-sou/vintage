@@ -57,6 +57,7 @@ export function HeroSection() {
           sizes="100vw"
           className="object-cover"
           priority
+          unoptimized={true}
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
@@ -69,6 +70,7 @@ export function HeroSection() {
             width={96}
             height={96}
             className="w-32 h-32 md:w-32 md:h-32 rounded-full object-cover shadow-2xl border-2 border-white/20"
+            unoptimized={true}
           />
         </div>
 

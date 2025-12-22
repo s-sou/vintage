@@ -16,6 +16,7 @@ export function Footer() {
                   alt="Residencia Vintage Logo"
                   width={32}
                   height={32}
+                  unoptimized={true}
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <span

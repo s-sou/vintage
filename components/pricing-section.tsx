@@ -77,12 +77,12 @@ export function PricingSection() {
               key={index}
               className={`relative group ${
                 tier.highlighted
-                  ? "border-primary shadow-xl scale-105 bg-gradient-to-b from-background to-primary/5"
+                  ? "border-primary shadow-xl scale-105 bg-linear-to-b from-background to-primary/5"
                   : "hover:border-primary/50 hover:shadow-lg"
               } transition-all duration-300`}
             >
               {tier.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-linear-to-r from-primary to-primary/80 text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
                   ⭐ Meest Gekozen
                 </div>
               )}
@@ -105,7 +105,7 @@ export function PricingSection() {
                 <ul className="space-y-3 mb-8">
                   {tier.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-3 group/item">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
+                      <Check className="h-5 w-5 text-primary shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
                       <span className="text-sm leading-relaxed">{feature}</span>
                     </li>
                   ))}

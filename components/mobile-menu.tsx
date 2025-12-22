@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,24 @@ import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return (
+      <Button
+        variant="ghost"
+        size="icon"
+        className="md:hidden cursor-pointer"
+      >
+        <Menu className="h-5 w-5" />
+        <span className="sr-only">Toggle menu</span>
+      </Button>
+    );
+  }
 
   const menuItems = [
     { href: "/#About", label: "Nosotros" },

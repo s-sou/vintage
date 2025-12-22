@@ -18,8 +18,8 @@ export default function Home() {
       <ServicesSection />
       <ProcessSection />
       <PortfolioSection />
-      <ContactSection />
-      <PricingSection />
+      {/* <ContactSection />
+      <PricingSection /> */}
       <TestimonialsSection />
       <Footer />
     </main>

@@ -9,7 +9,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 const residences = [
   {
     title: "Residencia Parque Rodó",
-    slug: "parque_rodo",
+    slug: "parque-rodo",
     dir: "Dirección 1",
     image: "/HeroVintage.png",
     features: [
@@ -35,7 +35,7 @@ const residences = [
   },
   {
     title: "¡Nueva!\n Residencia Parque Rodó II",
-    slug: "parque_rodo_2",
+    slug: "parque-rodo-2",
     dir: "Dirección 3",
     image: "/ImgVintage6.png",
     features: [
@@ -68,7 +68,7 @@ export function PortfolioSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {residences.map((residence, index) => (
-              <Link key={index} href={`/residencias/${residence.slug}`} className="block">
+              <Link key={index} href={`/residences/${residence.slug}`} className="block">
                 <Card
                   className="group overflow-hidden border-none shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.01] cursor-pointer"
                 >

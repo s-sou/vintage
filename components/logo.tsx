@@ -11,6 +11,7 @@ export function Logo({ className = "" }: { className?: string }) {
             alt="Residencia Vintage Logo"
             width={32}
             height={32}
+            unoptimized={true}
             className="w-12 h-12 md:w-12 md:h-12 rounded-full object-cover shadow-2xl border-2 border-white/20"
           />
         </div>
