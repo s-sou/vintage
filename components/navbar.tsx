@@ -48,9 +48,9 @@ export function Navbar() {
                 <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </span>
             </Link>
-            <Link href="/#contact" className="text-sm font-medium hover:text-primary hover:font-bold transition-all duration-200 relative group inline-block hover:scale-110">
+            <Link href="/#process" className="text-sm font-medium hover:text-primary hover:font-bold transition-all duration-200 relative group inline-block hover:scale-110">
               <span className="relative">
-                Contacto
+                Hospedate
                 <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </span>
             </Link>

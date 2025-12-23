@@ -1,9 +1,11 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Lightbulb, PaletteIcon, Rocket, ArrowRight } from "lucide-react"
-import { Fragment } from "react"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Lightbulb, PaletteIcon, Rocket, ArrowRight } from "lucide-react";
+import { Fragment } from "react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import Link from "next/link";
+import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const steps = [
   {
@@ -27,24 +29,37 @@ const steps = [
       "Nos encontramos en la residencia que seleccionaste a la hora que indicaste en el formulario para que la recorras y confirmes tu estadía.",
     number: "03",
   },
-]
+];
 
 export function ProcessSection() {
   const { elementRef, isVisible } = useScrollAnimation();
   return (
-    <section ref={elementRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 relative overflow-hidden">
+    <section
+      ref={elementRef}
+      id="process"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 relative overflow-hidden"
+    >
       <div className="absolute inset-0 bg-grid-pattern opacity-5" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary text-xs font-semibold">
             🚀 En 3 pasos
           </div>
-          <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <h2
+            className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance ${
+              isVisible ? "animate-fade-in-up" : "opacity-0"
+            }`}
+          >
             <span className="text-primary">Hospedate</span> con nosotros
           </h2>
-          <p className={`text-lg text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed ${isVisible ? 'animate-fade-in-up animate-delay-100' : 'opacity-0'}`}>
-            Seguí estos 3 simples pasos para hospedarte en nuestras residencias de estudiantes.
+          <p
+            className={`text-lg text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed ${
+              isVisible ? "animate-fade-in-up animate-delay-100" : "opacity-0"
+            }`}
+          >
+            Seguí estos 3 simples pasos para hospedarte en nuestras residencias
+            de estudiantes.
           </p>
         </div>
 
@@ -53,8 +68,9 @@ export function ProcessSection() {
             <Fragment key={index}>
               <Card
                 key={index}
-                className={`relative overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-background cursor-pointer ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-                style={isVisible ? { animationDelay: `${0.5 + index * 0.3}s` } : undefined}
+                className={`relative overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-background cursor-pointer ${
+                  isVisible ? "animate-fade-in-up" : "opacity-0"
+                }`}
               >
                 <div className="absolute top-0 right-0 text-[120px] font-bold bg-linear-to-br from-primary/10 to-primary/5 bg-clip-text text-transparent leading-none p-4">
                   {step.number}
@@ -63,10 +79,45 @@ export function ProcessSection() {
                   <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 w-fit group-hover:scale-110 group-hover:rotate-6">
                     <step.icon className="h-6 w-6" />
                   </div>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">{step.title}</CardTitle>
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                    {step.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
+                  {index === 0 && (
+                    <div className="flex gap-4 justify-center mt-6 pt-4 border-t border-border/50">
+                      <Link
+                        href="https://wa.me/59894580911?text=Hola,%20tengo%20interés%20en%20hospedarme%20en%20una%20de%20sus%20residencias.."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-primary hover:scale-130 transition-all duration-200"
+                      >
+                        <FaWhatsapp className="h-6 w-6" />
+                        <span className="sr-only">WhatsApp</span>
+                      </Link>
+                      <Link
+                        href="https://www.facebook.com/residenciauniversitariavintage"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-primary hover:scale-130 transition-all duration-200"
+                      >
+                        <FaFacebook className="h-6 w-6" />
+                        <span className="sr-only">Facebook</span>
+                      </Link>
+                      <Link
+                        href="https://www.instagram.com/residencia_vintage/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-primary hover:scale-130 transition-all duration-200"
+                      >
+                        <FaInstagram className="h-6 w-6" />
+                        <span className="sr-only">Instagram</span>
+                      </Link>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
               {index < steps.length - 1 && (
@@ -82,5 +133,5 @@ export function ProcessSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -106,7 +106,7 @@ export function HeroSection() {
             className="font-semibold group shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/25 transition-all"
             asChild
           >
-            <a href="#contact">
+            <a href="#process">
               Inscripciones Abiertas
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>

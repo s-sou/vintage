@@ -39,7 +39,7 @@ export function MobileMenu() {
     { href: "/#About", label: "Nosotros" },
     { href: "/#Services", label: "Servicios" },
     { href: "/#Residences", label: "Residencias" },
-    { href: "/#contact", label: "Contacto" },
+    { href: "/#process", label: "Hospedate" },
     { href: "/#pakketten", label: "Tour Virtual" },
   ];
 
